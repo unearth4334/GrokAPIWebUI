@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UiSettings",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "theme", "thumbnailSize", "updatedAt"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "theme": {
+      "type": "string",
+      "enum": ["light", "dark", "system"]
+    },
+    "thumbnailSize": {
+      "type": "integer",
+      "minimum": 64,
+      "maximum": 256
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "activeCredentialId": {
+      "type": ["string", "null"]
+    }
+  }
+}
