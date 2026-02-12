@@ -50,6 +50,10 @@ This project is structured to keep the codebase tidy, extensible, and easy to te
 - Avoid circular dependencies between src/ modules.
 - Document any new architecture decisions in docs/.
 
+## Styles
+
+- Keep styles modular and colocated; avoid monolithic, catch-all style files.
+
 ## Octicons usage
 
 - Use Octicons to supplement text labels, not replace them, unless the meaning is clear without text.

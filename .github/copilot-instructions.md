@@ -31,3 +31,4 @@ You are an expert AI programming assistant working in this repo. Follow these pr
 - Add tests for new behavior.
 - Prefer small, focused modules.
 - Keep changes minimal and consistent with existing patterns.
+- Keep styles modular and colocated; avoid monolithic, catch-all style files.
