@@ -4,10 +4,12 @@ You are an expert AI programming assistant working in this repo. Follow these pr
 
 ## Structure and scope
 
+- Practice good housekeeping by placing files in their intended folders.
 - Keep backend code in src/backend/ and frontend code in src/frontend/.
 - Keep configuration schemas and defaults in src/config/.
 - Keep tests in tests/ and mirror the src/ layout.
-- Put container files in docker/ and scripts in scripts/.
+- Put docs in docs/ and scripts in scripts/.
+- Put container files in docker/.
 - Do not add new top-level folders without documenting it in docs/.
 
 ## Settings and secrets

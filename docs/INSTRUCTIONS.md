@@ -34,6 +34,10 @@ This project is structured to keep the codebase tidy, extensible, and easy to te
 - Add unit tests and integration tests as appropriate.
 - Maintain meaningful coverage; avoid empty or superficial tests.
 
+## Workflow
+
+- Start each feature on a dedicated feature branch.
+
 ## Docker guidance
 
 - The app should run inside the Docker container defined in docker/Dockerfile.

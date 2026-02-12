@@ -6,6 +6,10 @@ Use this template when requesting a new feature.
 
 Describe the user-facing outcome in 1-2 sentences.
 
+## Workflow
+
+- Start a feature branch before implementation.
+
 ## Context
 
 - Area: frontend | backend | shared
