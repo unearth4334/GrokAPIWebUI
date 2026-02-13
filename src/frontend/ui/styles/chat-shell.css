@@ -19,6 +19,37 @@
   gap: 12px;
 }
 
+.chat-shell__messages {
+  display: grid;
+  gap: 16px;
+}
+
+.chat-shell__message {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.chat-shell__message--assistant {
+  background: rgba(79, 70, 229, 0.1);
+}
+
+.chat-shell__role {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(31, 35, 40, 0.6);
+}
+
+.chat-shell__message p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
 .chat-shell__logo {
   display: grid;
   place-items: center;
@@ -84,10 +115,25 @@
   background: #1f2937;
 }
 
+.chat-shell__status {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(175, 46, 43, 0.9);
+}
+
 .app-shell[data-theme="dark"] .chat-shell__history,
 .app-shell[data-theme="dark"] .chat-shell__composer {
   background: rgba(15, 23, 42, 0.85);
   color: #f8fafc;
+}
+
+.app-shell[data-theme="dark"] .chat-shell__message {
+  background: rgba(15, 23, 42, 0.55);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.app-shell[data-theme="dark"] .chat-shell__message--assistant {
+  background: rgba(99, 102, 241, 0.2);
 }
 
 .app-shell[data-theme="dark"] .chat-shell__input-row textarea {

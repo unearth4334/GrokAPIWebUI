@@ -7,8 +7,9 @@ from sqlalchemy.orm import Session
 from .config import get_settings
 from .crypto import encrypt_secret
 from .db import Base, get_engine, get_session
+from .grok import build_text_request, create_text_response, extract_output_text
 from .models import Credential
-from .schemas import CredentialCreate, CredentialSummary
+from .schemas import CredentialCreate, CredentialSummary, GrokTextRequest, GrokTextResponse
 
 app = FastAPI(title="Grok API Web UI")
 
@@ -47,6 +48,33 @@ def on_startup() -> None:
 def health() -> dict:
     # Simple health check without DB connection.
     return {"status": "ok"}
+
+
+@app.post("/api/grok/text", response_model=GrokTextResponse)
+def generate_text(payload: GrokTextRequest) -> GrokTextResponse:
+    if not settings.grok_api_key:
+        raise HTTPException(status_code=400, detail="Grok API key is missing")
+
+    request_payload = build_text_request(
+        prompt=payload.prompt,
+        system=payload.system,
+        model=payload.model or settings.grok_text_model,
+        previous_response_id=payload.previous_response_id,
+        store=True if payload.store is None else payload.store,
+    )
+
+    try:
+        response_json = create_text_response(
+            base_url=settings.grok_api_base_url,
+            api_key=settings.grok_api_key,
+            payload=request_payload,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+
+    output_text = extract_output_text(response_json)
+    response_id = response_json.get("id", "")
+    return GrokTextResponse(id=response_id, output_text=output_text)
 
 
 @app.post("/api/credentials", response_model=CredentialSummary)
