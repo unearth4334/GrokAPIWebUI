@@ -1,0 +1,78 @@
+.settings-popover {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: grid;
+  place-items: center;
+  z-index: 20;
+}
+
+.settings-popover__panel {
+  width: min(420px, 92vw);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.3);
+  display: grid;
+  gap: 16px;
+}
+
+.settings-popover__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-popover__section {
+  display: grid;
+  gap: 8px;
+}
+
+.settings-popover__section input,
+.settings-popover__section select {
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  padding: 10px 12px;
+}
+
+.settings-popover__hint {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(31, 35, 40, 0.6);
+}
+
+.settings-popover__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.settings-popover__status {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(31, 35, 40, 0.7);
+}
+
+.settings-popover__actions button {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.settings-popover__actions .primary {
+  background: #111827;
+  color: #ffffff;
+}
+
+.app-shell[data-theme="dark"] .settings-popover__panel {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.app-shell[data-theme="dark"] .settings-popover__section input,
+.app-shell[data-theme="dark"] .settings-popover__section select {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.2);
+}

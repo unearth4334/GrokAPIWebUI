@@ -1,0 +1,417 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 970B done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile.backend
+#2 transferring dockerfile: 415B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile.frontend
+#3 transferring dockerfile: 351B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/node:20-bookworm-slim
+#4 ...
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.4s
+
+#4 [frontend internal] load metadata for docker.io/library/node:20-bookworm-slim
+#4 DONE 0.4s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [backend 1/6] FROM docker.io/library/python:3.12-slim@sha256:9e01bf1ae5db7649a236da7be1e94ffbbbdd7a93f867dd0d8d5720d9e1f89fab
+#7 DONE 0.0s
+
+#8 [backend 2/6] WORKDIR /app
+#8 CACHED
+
+#9 [frontend 1/7] FROM docker.io/library/node:20-bookworm-slim@sha256:c6585df72c34172bebd8d36abed961e231d7d3b5cee2e01294c4495e8a03f687
+#9 DONE 0.0s
+
+#10 [backend internal] load build context
+#10 transferring context: 3.06kB done
+#10 DONE 0.0s
+
+#11 [frontend internal] load build context
+#11 transferring context: 1.37kB done
+#11 DONE 0.0s
+
+#12 [frontend 3/7] COPY package.json package-lock.json* ./
+#12 CACHED
+
+#13 [frontend 4/7] RUN npm install
+#13 CACHED
+
+#14 [frontend 6/7] COPY src/frontend ./src/frontend
+#14 CACHED
+
+#15 [frontend 5/7] COPY index.html tsconfig.json tsconfig.node.json vite.config.ts ./
+#15 CACHED
+
+#16 [frontend 2/7] WORKDIR /app
+#16 CACHED
+
+#17 [frontend 7/7] COPY tests/frontend ./tests/frontend
+#17 CACHED
+
+#18 [frontend] exporting to image
+#18 exporting layers done
+#18 writing image sha256:5595a63129b41dbf5aa24c5eb4fcbac9c3c9fad86b7681d9c533f3b411327d27 done
+#18 naming to docker.io/library/docker-frontend done
+#18 DONE 0.0s
+
+#19 [frontend] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [backend 3/6] RUN apt-get update && apt-get install -y --no-install-recommends     libpq-dev     curl     && rm -rf /var/lib/apt/lists/*
+#20 0.252 Hit:1 http://deb.debian.org/debian trixie InRelease
+#20 0.257 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#20 0.286 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#20 0.321 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9670 kB]
+#20 0.829 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+#20 0.842 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [104 kB]
+#20 1.237 Fetched 9871 kB in 1s (9376 kB/s)
+#20 1.237 Reading package lists...
+#20 1.527 Reading package lists...
+#20 1.813 Building dependency tree...
+#20 1.873 Reading state information...
+#20 1.956 The following additional packages will be installed:
+#20 1.956   libbrotli1 libcom-err2 libcurl4t64 libgnutls30t64 libgssapi-krb5-2 libidn2-0
+#20 1.956   libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap2 libnghttp2-14
+#20 1.956   libnghttp3-9 libp11-kit0 libpq5 libpsl5t64 librtmp1 libsasl2-2
+#20 1.956   libsasl2-modules-db libssh2-1t64 libssl-dev libtasn1-6 libunistring5
+#20 1.956 Suggested packages:
+#20 1.956   gnutls-bin krb5-doc krb5-user postgresql-doc-17 libssl-doc
+#20 1.956 Recommended packages:
+#20 1.956   bash-completion krb5-locales libldap-common publicsuffix libsasl2-modules
+#20 2.077 The following NEW packages will be installed:
+#20 2.077   curl libbrotli1 libcom-err2 libcurl4t64 libgnutls30t64 libgssapi-krb5-2
+#20 2.077   libidn2-0 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap2
+#20 2.077   libnghttp2-14 libnghttp3-9 libp11-kit0 libpq-dev libpq5 libpsl5t64 librtmp1
+#20 2.077   libsasl2-2 libsasl2-modules-db libssh2-1t64 libssl-dev libtasn1-6
+#20 2.077   libunistring5
+#20 2.160 0 upgraded, 25 newly installed, 0 to remove and 0 not upgraded.
+#20 2.160 Need to get 8220 kB of archives.
+#20 2.160 After this operation, 33.0 MB of additional disk space will be used.
+#20 2.160 Get:1 http://deb.debian.org/debian trixie/main amd64 libbrotli1 amd64 1.1.0-2+b7 [307 kB]
+#20 2.227 Get:2 http://deb.debian.org/debian trixie/main amd64 libkrb5support0 amd64 1.21.3-5 [33.0 kB]
+#20 2.227 Get:3 http://deb.debian.org/debian trixie/main amd64 libcom-err2 amd64 1.47.2-3+b7 [25.0 kB]
+#20 2.227 Get:4 http://deb.debian.org/debian trixie/main amd64 libk5crypto3 amd64 1.21.3-5 [81.5 kB]
+#20 2.231 Get:5 http://deb.debian.org/debian trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+#20 2.231 Get:6 http://deb.debian.org/debian trixie/main amd64 libkrb5-3 amd64 1.21.3-5 [326 kB]
+#20 2.246 Get:7 http://deb.debian.org/debian trixie/main amd64 libgssapi-krb5-2 amd64 1.21.3-5 [138 kB]
+#20 2.252 Get:8 http://deb.debian.org/debian trixie/main amd64 libunistring5 amd64 1.3-2 [477 kB]
+#20 2.273 Get:9 http://deb.debian.org/debian trixie/main amd64 libidn2-0 amd64 2.3.8-2 [109 kB]
+#20 2.278 Get:10 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9 [19.8 kB]
+#20 2.279 Get:11 http://deb.debian.org/debian trixie/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9 [57.5 kB]
+#20 2.281 Get:12 http://deb.debian.org/debian trixie/main amd64 libldap2 amd64 2.6.10+dfsg-1 [194 kB]
+#20 2.291 Get:13 http://deb.debian.org/debian trixie/main amd64 libnghttp2-14 amd64 1.64.0-1.1 [76.0 kB]
+#20 2.294 Get:14 http://deb.debian.org/debian trixie/main amd64 libnghttp3-9 amd64 1.8.0-1 [67.7 kB]
+#20 2.297 Get:15 http://deb.debian.org/debian trixie/main amd64 libpsl5t64 amd64 0.21.2-1.1+b1 [57.2 kB]
+#20 2.300 Get:16 http://deb.debian.org/debian trixie/main amd64 libp11-kit0 amd64 0.25.5-3 [425 kB]
+#20 2.319 Get:17 http://deb.debian.org/debian trixie/main amd64 libtasn1-6 amd64 4.20.0-2 [49.9 kB]
+#20 2.321 Get:18 http://deb.debian.org/debian trixie/main amd64 libgnutls30t64 amd64 3.8.9-3+deb13u1 [1466 kB]
+#20 2.412 Get:19 http://deb.debian.org/debian trixie/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b5 [58.8 kB]
+#20 2.412 Get:20 http://deb.debian.org/debian trixie/main amd64 libssh2-1t64 amd64 1.11.1-1 [245 kB]
+#20 2.420 Get:21 http://deb.debian.org/debian trixie/main amd64 libcurl4t64 amd64 8.14.1-2+deb13u2 [391 kB]
+#20 2.426 Get:22 http://deb.debian.org/debian trixie/main amd64 curl amd64 8.14.1-2+deb13u2 [270 kB]
+#20 2.446 Get:23 http://deb.debian.org/debian trixie/main amd64 libpq5 amd64 17.7-0+deb13u1 [228 kB]
+#20 2.455 Get:24 http://deb.debian.org/debian-security trixie-security/main amd64 libssl-dev amd64 3.5.4-1~deb13u2 [2958 kB]
+#20 2.589 Get:25 http://deb.debian.org/debian trixie/main amd64 libpq-dev amd64 17.7-0+deb13u1 [151 kB]
+#20 2.698 debconf: unable to initialize frontend: Dialog
+#20 2.698 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#20 2.698 debconf: falling back to frontend: Readline
+#20 2.698 debconf: unable to initialize frontend: Readline
+#20 2.698 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 25.)
+#20 2.698 debconf: falling back to frontend: Teletype
+#20 2.700 debconf: unable to initialize frontend: Teletype
+#20 2.700 debconf: (This frontend requires a controlling tty.)
+#20 2.700 debconf: falling back to frontend: Noninteractive
+#20 3.007 Fetched 8220 kB in 1s (16.2 MB/s)
+#20 3.052 Selecting previously unselected package libbrotli1:amd64.
+#20 3.052 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 5645 files and directories currently installed.)
+#20 3.064 Preparing to unpack .../00-libbrotli1_1.1.0-2+b7_amd64.deb ...
+#20 3.080 Unpacking libbrotli1:amd64 (1.1.0-2+b7) ...
+#20 3.187 Selecting previously unselected package libkrb5support0:amd64.
+#20 3.188 Preparing to unpack .../01-libkrb5support0_1.21.3-5_amd64.deb ...
+#20 3.197 Unpacking libkrb5support0:amd64 (1.21.3-5) ...
+#20 3.253 Selecting previously unselected package libcom-err2:amd64.
+#20 3.253 Preparing to unpack .../02-libcom-err2_1.47.2-3+b7_amd64.deb ...
+#20 3.262 Unpacking libcom-err2:amd64 (1.47.2-3+b7) ...
+#20 3.315 Selecting previously unselected package libk5crypto3:amd64.
+#20 3.315 Preparing to unpack .../03-libk5crypto3_1.21.3-5_amd64.deb ...
+#20 3.323 Unpacking libk5crypto3:amd64 (1.21.3-5) ...
+#20 3.377 Selecting previously unselected package libkeyutils1:amd64.
+#20 3.378 Preparing to unpack .../04-libkeyutils1_1.6.3-6_amd64.deb ...
+#20 3.386 Unpacking libkeyutils1:amd64 (1.6.3-6) ...
+#20 3.443 Selecting previously unselected package libkrb5-3:amd64.
+#20 3.444 Preparing to unpack .../05-libkrb5-3_1.21.3-5_amd64.deb ...
+#20 3.452 Unpacking libkrb5-3:amd64 (1.21.3-5) ...
+#20 3.523 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#20 3.524 Preparing to unpack .../06-libgssapi-krb5-2_1.21.3-5_amd64.deb ...
+#20 3.532 Unpacking libgssapi-krb5-2:amd64 (1.21.3-5) ...
+#20 3.597 Selecting previously unselected package libunistring5:amd64.
+#20 3.598 Preparing to unpack .../07-libunistring5_1.3-2_amd64.deb ...
+#20 3.607 Unpacking libunistring5:amd64 (1.3-2) ...
+#20 3.678 Selecting previously unselected package libidn2-0:amd64.
+#20 3.679 Preparing to unpack .../08-libidn2-0_2.3.8-2_amd64.deb ...
+#20 3.687 Unpacking libidn2-0:amd64 (2.3.8-2) ...
+#20 3.735 Selecting previously unselected package libsasl2-modules-db:amd64.
+#20 3.736 Preparing to unpack .../09-libsasl2-modules-db_2.1.28+dfsg1-9_amd64.deb ...
+#20 3.744 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#20 3.802 Selecting previously unselected package libsasl2-2:amd64.
+#20 3.804 Preparing to unpack .../10-libsasl2-2_2.1.28+dfsg1-9_amd64.deb ...
+#20 3.812 Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#20 3.879 Selecting previously unselected package libldap2:amd64.
+#20 3.881 Preparing to unpack .../11-libldap2_2.6.10+dfsg-1_amd64.deb ...
+#20 3.889 Unpacking libldap2:amd64 (2.6.10+dfsg-1) ...
+#20 3.955 Selecting previously unselected package libnghttp2-14:amd64.
+#20 3.956 Preparing to unpack .../12-libnghttp2-14_1.64.0-1.1_amd64.deb ...
+#20 3.964 Unpacking libnghttp2-14:amd64 (1.64.0-1.1) ...
+#20 4.031 Selecting previously unselected package libnghttp3-9:amd64.
+#20 4.032 Preparing to unpack .../13-libnghttp3-9_1.8.0-1_amd64.deb ...
+#20 4.041 Unpacking libnghttp3-9:amd64 (1.8.0-1) ...
+#20 4.106 Selecting previously unselected package libpsl5t64:amd64.
+#20 4.108 Preparing to unpack .../14-libpsl5t64_0.21.2-1.1+b1_amd64.deb ...
+#20 4.116 Unpacking libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#20 4.179 Selecting previously unselected package libp11-kit0:amd64.
+#20 4.179 Preparing to unpack .../15-libp11-kit0_0.25.5-3_amd64.deb ...
+#20 4.187 Unpacking libp11-kit0:amd64 (0.25.5-3) ...
+#20 4.257 Selecting previously unselected package libtasn1-6:amd64.
+#20 4.259 Preparing to unpack .../16-libtasn1-6_4.20.0-2_amd64.deb ...
+#20 4.267 Unpacking libtasn1-6:amd64 (4.20.0-2) ...
+#20 4.322 Selecting previously unselected package libgnutls30t64:amd64.
+#20 4.323 Preparing to unpack .../17-libgnutls30t64_3.8.9-3+deb13u1_amd64.deb ...
+#20 4.331 Unpacking libgnutls30t64:amd64 (3.8.9-3+deb13u1) ...
+#20 4.422 Selecting previously unselected package librtmp1:amd64.
+#20 4.423 Preparing to unpack .../18-librtmp1_2.4+20151223.gitfa8646d.1-2+b5_amd64.deb ...
+#20 4.431 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#20 4.498 Selecting previously unselected package libssh2-1t64:amd64.
+#20 4.500 Preparing to unpack .../19-libssh2-1t64_1.11.1-1_amd64.deb ...
+#20 4.509 Unpacking libssh2-1t64:amd64 (1.11.1-1) ...
+#20 4.580 Selecting previously unselected package libcurl4t64:amd64.
+#20 4.581 Preparing to unpack .../20-libcurl4t64_8.14.1-2+deb13u2_amd64.deb ...
+#20 4.589 Unpacking libcurl4t64:amd64 (8.14.1-2+deb13u2) ...
+#20 4.650 Selecting previously unselected package curl.
+#20 4.651 Preparing to unpack .../21-curl_8.14.1-2+deb13u2_amd64.deb ...
+#20 4.659 Unpacking curl (8.14.1-2+deb13u2) ...
+#20 4.741 Selecting previously unselected package libpq5:amd64.
+#20 4.742 Preparing to unpack .../22-libpq5_17.7-0+deb13u1_amd64.deb ...
+#20 4.751 Unpacking libpq5:amd64 (17.7-0+deb13u1) ...
+#20 4.811 Selecting previously unselected package libssl-dev:amd64.
+#20 4.812 Preparing to unpack .../23-libssl-dev_3.5.4-1~deb13u2_amd64.deb ...
+#20 4.820 Unpacking libssl-dev:amd64 (3.5.4-1~deb13u2) ...
+#20 4.952 Selecting previously unselected package libpq-dev.
+#20 4.953 Preparing to unpack .../24-libpq-dev_17.7-0+deb13u1_amd64.deb ...
+#20 4.961 Unpacking libpq-dev (17.7-0+deb13u1) ...
+#20 5.027 Setting up libkeyutils1:amd64 (1.6.3-6) ...
+#20 5.050 Setting up libbrotli1:amd64 (1.1.0-2+b7) ...
+#20 5.075 Setting up libnghttp2-14:amd64 (1.64.0-1.1) ...
+#20 5.099 Setting up libcom-err2:amd64 (1.47.2-3+b7) ...
+#20 5.124 Setting up libkrb5support0:amd64 (1.21.3-5) ...
+#20 5.149 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#20 5.173 Setting up libp11-kit0:amd64 (0.25.5-3) ...
+#20 5.197 Setting up libunistring5:amd64 (1.3-2) ...
+#20 5.222 Setting up libssl-dev:amd64 (3.5.4-1~deb13u2) ...
+#20 5.246 Setting up libk5crypto3:amd64 (1.21.3-5) ...
+#20 5.271 Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#20 5.295 Setting up libnghttp3-9:amd64 (1.8.0-1) ...
+#20 5.325 Setting up libtasn1-6:amd64 (4.20.0-2) ...
+#20 5.350 Setting up libkrb5-3:amd64 (1.21.3-5) ...
+#20 5.375 Setting up libssh2-1t64:amd64 (1.11.1-1) ...
+#20 5.400 Setting up libldap2:amd64 (2.6.10+dfsg-1) ...
+#20 5.425 Setting up libidn2-0:amd64 (2.3.8-2) ...
+#20 5.450 Setting up libgssapi-krb5-2:amd64 (1.21.3-5) ...
+#20 5.476 Setting up libgnutls30t64:amd64 (3.8.9-3+deb13u1) ...
+#20 5.501 Setting up libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#20 5.528 Setting up libpq5:amd64 (17.7-0+deb13u1) ...
+#20 5.554 Setting up libpq-dev (17.7-0+deb13u1) ...
+#20 5.579 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#20 5.603 Setting up libcurl4t64:amd64 (8.14.1-2+deb13u2) ...
+#20 5.627 Setting up curl (8.14.1-2+deb13u2) ...
+#20 5.651 Processing triggers for libc-bin (2.41-12+deb13u1) ...
+#20 DONE 5.7s
+
+#21 [backend 4/6] COPY requirements.txt ./
+#21 DONE 0.0s
+
+#22 [backend 5/6] RUN pip install --no-cache-dir -r requirements.txt
+#22 1.486 Collecting fastapi==0.112.0 (from -r requirements.txt (line 1))
+#22 1.559   Downloading fastapi-0.112.0-py3-none-any.whl.metadata (27 kB)
+#22 1.594 Collecting uvicorn==0.30.5 (from uvicorn[standard]==0.30.5->-r requirements.txt (line 2))
+#22 1.615   Downloading uvicorn-0.30.5-py3-none-any.whl.metadata (6.6 kB)
+#22 1.754 Collecting sqlalchemy==2.0.32 (from -r requirements.txt (line 3))
+#22 1.770   Downloading SQLAlchemy-2.0.32-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+#22 1.794 Collecting psycopg==3.2.1 (from -r requirements.txt (line 4))
+#22 1.808   Downloading psycopg-3.2.1-py3-none-any.whl.metadata (4.2 kB)
+#22 1.891 Collecting cryptography==43.0.0 (from -r requirements.txt (line 5))
+#22 1.904   Downloading cryptography-43.0.0-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (5.4 kB)
+#22 1.964 Collecting pydantic==2.8.2 (from -r requirements.txt (line 6))
+#22 1.979   Downloading pydantic-2.8.2-py3-none-any.whl.metadata (125 kB)
+#22 2.031 Collecting starlette<0.38.0,>=0.37.2 (from fastapi==0.112.0->-r requirements.txt (line 1))
+#22 2.045   Downloading starlette-0.37.2-py3-none-any.whl.metadata (5.9 kB)
+#22 2.080 Collecting typing-extensions>=4.8.0 (from fastapi==0.112.0->-r requirements.txt (line 1))
+#22 2.095   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+#22 2.117 Collecting click>=7.0 (from uvicorn==0.30.5->uvicorn[standard]==0.30.5->-r requirements.txt (line 2))
+#22 2.132   Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+#22 2.151 Collecting h11>=0.8 (from uvicorn==0.30.5->uvicorn[standard]==0.30.5->-r requirements.txt (line 2))
+#22 2.168   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#22 2.231 Collecting greenlet!=0.4.17 (from sqlalchemy==2.0.32->-r requirements.txt (line 3))
+#22 2.247   Downloading greenlet-3.3.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+#22 2.304 Collecting cffi>=1.12 (from cryptography==43.0.0->-r requirements.txt (line 5))
+#22 2.319   Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+#22 2.341 Collecting annotated-types>=0.4.0 (from pydantic==2.8.2->-r requirements.txt (line 6))
+#22 2.358   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#22 2.634 Collecting pydantic-core==2.20.1 (from pydantic==2.8.2->-r requirements.txt (line 6))
+#22 2.648   Downloading pydantic_core-2.20.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+#22 2.673 Collecting httptools>=0.5.0 (from uvicorn[standard]==0.30.5->-r requirements.txt (line 2))
+#22 2.687   Downloading httptools-0.7.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+#22 2.711 Collecting python-dotenv>=0.13 (from uvicorn[standard]==0.30.5->-r requirements.txt (line 2))
+#22 2.731   Downloading python_dotenv-1.2.1-py3-none-any.whl.metadata (25 kB)
+#22 2.760 Collecting pyyaml>=5.1 (from uvicorn[standard]==0.30.5->-r requirements.txt (line 2))
+#22 2.776   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+#22 2.808 Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0 (from uvicorn[standard]==0.30.5->-r requirements.txt (line 2))
+#22 2.827   Downloading uvloop-0.22.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+#22 2.883 Collecting watchfiles>=0.13 (from uvicorn[standard]==0.30.5->-r requirements.txt (line 2))
+#22 2.897   Downloading watchfiles-1.1.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#22 2.946 Collecting websockets>=10.4 (from uvicorn[standard]==0.30.5->-r requirements.txt (line 2))
+#22 2.959   Downloading websockets-16.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+#22 2.979 Collecting pycparser (from cffi>=1.12->cryptography==43.0.0->-r requirements.txt (line 5))
+#22 2.998   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+#22 3.030 Collecting anyio<5,>=3.4.0 (from starlette<0.38.0,>=0.37.2->fastapi==0.112.0->-r requirements.txt (line 1))
+#22 3.043   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+#22 3.072 Collecting idna>=2.8 (from anyio<5,>=3.4.0->starlette<0.38.0,>=0.37.2->fastapi==0.112.0->-r requirements.txt (line 1))
+#22 3.095   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+#22 3.122 Downloading fastapi-0.112.0-py3-none-any.whl (93 kB)
+#22 3.141 Downloading uvicorn-0.30.5-py3-none-any.whl (62 kB)
+#22 3.161 Downloading SQLAlchemy-2.0.32-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+#22 3.319    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 20.8 MB/s eta 0:00:00
+#22 3.328 Downloading psycopg-3.2.1-py3-none-any.whl (197 kB)
+#22 3.353 Downloading cryptography-43.0.0-cp39-abi3-manylinux_2_28_x86_64.whl (4.0 MB)
+#22 3.549    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 20.4 MB/s eta 0:00:00
+#22 3.567 Downloading pydantic-2.8.2-py3-none-any.whl (423 kB)
+#22 3.600 Downloading pydantic_core-2.20.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+#22 3.694    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 22.0 MB/s eta 0:00:00
+#22 3.712 Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+#22 3.731 Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+#22 3.754 Downloading click-8.3.1-py3-none-any.whl (108 kB)
+#22 3.773 Downloading greenlet-3.3.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (609 kB)
+#22 3.800    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 609.9/609.9 kB 26.4 MB/s eta 0:00:00
+#22 3.820 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#22 3.839 Downloading httptools-0.7.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (517 kB)
+#22 3.876 Downloading python_dotenv-1.2.1-py3-none-any.whl (21 kB)
+#22 3.895 Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+#22 3.932    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 22.9 MB/s eta 0:00:00
+#22 3.946 Downloading starlette-0.37.2-py3-none-any.whl (71 kB)
+#22 3.964 Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+#22 3.983 Downloading uvloop-0.22.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.4 MB)
+#22 4.182    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 22.3 MB/s eta 0:00:00
+#22 4.198 Downloading watchfiles-1.1.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (456 kB)
+#22 4.232 Downloading websockets-16.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (184 kB)
+#22 4.257 Downloading anyio-4.12.1-py3-none-any.whl (113 kB)
+#22 4.275 Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+#22 4.295 Downloading idna-3.11-py3-none-any.whl (71 kB)
+#22 4.341 Installing collected packages: websockets, uvloop, typing-extensions, pyyaml, python-dotenv, pycparser, idna, httptools, h11, greenlet, click, annotated-types, uvicorn, sqlalchemy, pydantic-core, psycopg, cffi, anyio, watchfiles, starlette, pydantic, cryptography, fastapi
+#22 5.821 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#22 5.821 Successfully installed annotated-types-0.7.0 anyio-4.12.1 cffi-2.0.0 click-8.3.1 cryptography-43.0.0 fastapi-0.112.0 greenlet-3.3.1 h11-0.16.0 httptools-0.7.1 idna-3.11 psycopg-3.2.1 pycparser-3.0 pydantic-2.8.2 pydantic-core-2.20.1 python-dotenv-1.2.1 pyyaml-6.0.3 sqlalchemy-2.0.32 starlette-0.37.2 typing-extensions-4.15.0 uvicorn-0.30.5 uvloop-0.22.1 watchfiles-1.1.1 websockets-16.0
+#22 5.917 
+#22 5.917 [notice] A new release of pip is available: 25.0.1 -> 26.0.1
+#22 5.917 [notice] To update, run: pip install --upgrade pip
+#22 DONE 6.1s
+
+#23 [backend 6/6] COPY src/backend ./src/backend
+#23 DONE 0.0s
+
+#24 [backend] exporting to image
+#24 exporting layers
+#24 exporting layers 0.2s done
+#24 writing image sha256:a86657d7833cf27ae793828c105c45578fd35eff1f9e905b558839062c70f55a done
+#24 naming to docker.io/library/docker-backend done
+#24 DONE 0.2s
+
+#25 [backend] resolving provenance for metadata file
+#25 DONE 0.0s
+ docker-backend  Built
+ docker-frontend  Built
+ Network docker_default  Creating
+ Network docker_default  Created
+ Container docker-db-1  Creating
+ Container docker-db-1  Created
+ Container docker-backend-1  Creating
+ Container docker-backend-1  Created
+ Container docker-frontend-1  Creating
+ Container docker-frontend-1  Created
+Attaching to backend-1, db-1, frontend-1
+db-1  | The files belonging to this database system will be owned by user "postgres".
+db-1  | This user must also own the server process.
+db-1  | 
+db-1  | The database cluster will be initialized with locale "en_US.utf8".
+db-1  | The default database encoding has accordingly been set to "UTF8".
+db-1  | The default text search configuration will be set to "english".
+db-1  | 
+db-1  | Data page checksums are disabled.
+db-1  | 
+db-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-1  | creating subdirectories ... ok
+db-1  | selecting dynamic shared memory implementation ... posix
+db-1  | selecting default max_connections ... 100
+db-1  | selecting default shared_buffers ... 128MB
+db-1  | selecting default time zone ... Etc/UTC
+db-1  | creating configuration files ... ok
+db-1  | running bootstrap script ... ok
+db-1  | performing post-bootstrap initialization ... ok
+db-1  | initdb: warning: enabling "trust" authentication for local connections
+db-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-1  | syncing data to disk ... ok
+db-1  | 
+db-1  | 
+db-1  | Success. You can now start the database server using:
+db-1  | 
+db-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-1  | 
+db-1  | waiting for server to start....2026-02-12 08:42:43.115 UTC [48] LOG:  starting PostgreSQL 16.11 (Debian 16.11-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-1  | 2026-02-12 08:42:43.120 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1  | 2026-02-12 08:42:43.132 UTC [51] LOG:  database system was shut down at 2026-02-12 08:42:42 UTC
+db-1  | 2026-02-12 08:42:43.138 UTC [48] LOG:  database system is ready to accept connections
+db-1  |  done
+db-1  | server started
+db-1  | CREATE DATABASE
+db-1  | 
+db-1  | 
+db-1  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1  | 
+db-1  | waiting for server to shut down...2026-02-12 08:42:43.274 UTC [48] LOG:  received fast shutdown request
+db-1  | .2026-02-12 08:42:43.278 UTC [48] LOG:  aborting any active transactions
+db-1  | 2026-02-12 08:42:43.278 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+db-1  | 2026-02-12 08:42:43.278 UTC [49] LOG:  shutting down
+db-1  | 2026-02-12 08:42:43.282 UTC [49] LOG:  checkpoint starting: shutdown immediate
+db-1  | 2026-02-12 08:42:43.446 UTC [49] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.014 s, sync=0.137 s, total=0.168 s; sync files=301, longest=0.004 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0D0, redo lsn=0/191F0D0
+db-1  | 2026-02-12 08:42:43.454 UTC [48] LOG:  database system is shut down
+db-1  |  done
+db-1  | server stopped
+db-1  | 
+db-1  | PostgreSQL init process complete; ready for start up.
+db-1  | 
+db-1  | 2026-02-12 08:42:43.499 UTC [1] LOG:  starting PostgreSQL 16.11 (Debian 16.11-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-1  | 2026-02-12 08:42:43.499 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1  | 2026-02-12 08:42:43.499 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1  | 2026-02-12 08:42:43.507 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1  | 2026-02-12 08:42:43.516 UTC [64] LOG:  database system was shut down at 2026-02-12 08:42:43 UTC
+db-1  | 2026-02-12 08:42:43.522 UTC [1] LOG:  database system is ready to accept connections
+frontend-1  | 
+frontend-1  | > dev
+frontend-1  | > vite --host 0.0.0.0
+frontend-1  | 
+frontend-1  | 
+frontend-1  |   VITE v5.4.21  ready in 92 ms
+frontend-1  | 
+frontend-1  |   ➜  Local:   http://localhost:5173/
+frontend-1  |   ➜  Network: http://172.25.0.4:5173/
+backend-1   | INFO:     Started server process [1]
+backend-1   | INFO:     Waiting for application startup.
+backend-1   | INFO:     Application startup complete.
+backend-1   | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)

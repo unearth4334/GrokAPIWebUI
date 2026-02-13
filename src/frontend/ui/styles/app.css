@@ -1,0 +1,11 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(140deg, rgba(14, 25, 45, 0.06), rgba(250, 240, 222, 0.6));
+}
+
+.app-shell[data-theme="dark"] {
+  background: radial-gradient(circle at top, #0f1b2d 0%, #141a26 60%, #10131c 100%);
+  color: #f5f7fa;
+}

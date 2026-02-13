@@ -14,5 +14,6 @@ Web app to interface with Grok's API. This repo starts with a clean, extensible 
 
 1. Copy .env.example to .env and fill in values.
 2. Build and run with Docker Compose.
+3. Open http://localhost:3000 for the UI and http://localhost:8001/health for the API.
 
 See docs/INSTRUCTIONS.md for detailed guidance.
